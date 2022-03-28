@@ -92,7 +92,7 @@ deleteMovie = async(req, res) => {
             success: true,
             data: movie,
         });
-    }).catch(err => console.log(err));
+    }).clone().catch(err => console.log(err));
 }
 
 getMovieById = async(req, res) => {
@@ -113,7 +113,7 @@ getMovieById = async(req, res) => {
             success: true,
             data: movie,
         });
-    }).catch(err => console.log(err));
+    }).clone().catch(err => console.log(err));
 }
 
 getMovies = async(req, res) => {
@@ -130,11 +130,12 @@ getMovies = async(req, res) => {
                 error: 'Movie not found',
             });
         }
+        console.log(movies);
         return res.status(200).json({
             success: true,
             data: movies,
         });
-    }).catch(err => console.log(err));
+    }).clone().catch(err => console.log(err));
 }
 
 module.exports = {
